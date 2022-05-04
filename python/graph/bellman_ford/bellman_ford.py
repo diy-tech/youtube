@@ -85,6 +85,14 @@ class Graph:
                     distance[v] = distance[u]+weight
                     predecessors[v] = u
         
+        # negative cycle detection
+        for edge in self.edges:
+            u = edge.nodeFrom.index
+            v = edge.nodeTo.index
+            weight = edge.weight
+            if distance[u] + weight < distance[v]:
+                return -1, []
+
         path = [targetIdx]
         u = targetIdx
         while predecessors[u] != None:
