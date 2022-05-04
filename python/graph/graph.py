@@ -46,11 +46,11 @@ class Graph:
         if vFrom == None:
             vFrom = self.Vertex(vertexFrom, self.currentIndex)
             self.currentIndex += 1            
+            self.nodes.append(vFrom)
         if vTo == None:
             vTo = self.Vertex(vertexTo, self.currentIndex)
             self.currentIndex += 1
-        self.nodes.append(vFrom)
-        self.nodes.append(vTo)
+            self.nodes.append(vTo)
         self.edges.append(self.Edge(vFrom, vTo, weight))
         
     def print(self):
